@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aritú Base — Plano de Missões</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-top">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="18" r="13" fill="#DD7C18"/>
+        <rect x="10" y="22" width="28" height="14" rx="2" fill="#312015"/>
+        <rect x="14" y="17" width="10" height="9" rx="1" fill="#312015"/>
+        <rect x="15" y="18" width="4" height="4" rx="0.5" fill="#F2EDE2" opacity="0.5"/>
+        <rect x="10" y="34" width="28" height="3" rx="1" fill="#8D6334" opacity="0.7"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-name">Aritú Base</div>
+        <div class="brand-sub">Experiência Amazônica · Novo Airão</div>
+      </div>
+      <div class="header-doc-label">Plano de<br>Missões</div>
+    </div>
+  </div>
+  <div class="header-progress-bar">
+    <div class="header-progress-fill" id="global-progress" style="width:0%"></div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num" id="xp-num">0</div>
+      <div class="stat-label">XP Ganho</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="tasks-num">0</div>
+      <div class="stat-label">Tarefas Feitas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="phase-num">1</div>
+      <div class="stat-label">Fase Atual</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="pct-num">0%</div>
+      <div class="stat-label">Progresso</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-heading"><span>Missões da Construção</span></div>
+
+<!-- PHASES -->
+<div class="phases-list" id="phases-list"></div>
+
+<!-- PARALLEL ACTIONS -->
+<div class="parallel-box">
+  <div class="parallel-inner">
+    <div class="parallel-title">⚡ Ações Paralelas — Iniciar já na Fase 1</div>
+    <div class="parallel-item"><span>🌳</span><span><b>Poda de árvores:</b> solicitar o serviço ainda na fase 1 — a execução está programada para a fase 3.</span></div>
+    <div class="parallel-item"><span>⚡</span><span><b>Elétrico/hidráulico externo:</b> contratar profissional na fase 2 para execução garantida na fase 3.</span></div>
+    <div class="parallel-item"><span>🪑</span><span><b>Mobiliário gradual:</b> comprar itens de bar, freezers e utensílios durante todas as fases — já usar na operação atual do flutuante.</span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-name">Aritú</div>
+    <div class="footer-sub">Passeios · Drinks · Lounge</div>
+    <div class="footer-contact">contato@aritu.com.br · (92) 9 0000-0000 · @aritu_amazonia</div>
+  </div>
+  <button class="reset-btn" id="reset-btn">Reiniciar progresso</button>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

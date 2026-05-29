@@ -1,0 +1,469 @@
+﻿:root {
+    --dark-brown: #312015;
+    --orange:     #DD7C18;
+    --terracota:  #AE3620;
+    --mid-brown:  #8D6334;
+    --cream:      #F2EDE2;
+    --cream-dark: #E6DDD0;
+    --gray-text:  #7A6F65;
+    --gray-light: #F5F1EB;
+    --white:      #FFFFFF;
+    --green:      #2D7A45;
+    --green-bg:   #E8F5ED;
+    --red-bg:     #FDECEA;
+    --red-text:   #9B2020;
+    --amber-bg:   #FFF3DC;
+    --amber-text: #8A5200;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--dark-brown);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--dark-brown);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 0;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  /* SVG logo approximation using brand shapes */
+  .logo-svg circle { fill: var(--orange); }
+  .brand-text { flex: 1; }
+  .brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .brand-sub {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-doc-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.12em;
+    text-align: right;
+    line-height: 1.2;
+  }
+  .header-progress-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+  }
+  .header-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--terracota));
+    transition: width 0.5s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ── STATS ROW ── */
+  .stats-section {
+    max-width: 720px;
+    margin: 1.5rem auto 0;
+    padding: 0 1.25rem;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+  }
+  @media (max-width: 480px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px;
+    padding: 0.9rem 0.5rem;
+    text-align: center;
+    border-top: 3px solid var(--orange);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--dark-brown);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--gray-text);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-heading {
+    max-width: 720px;
+    margin: 1.75rem auto 1rem;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+  .section-heading span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--gray-text);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── PHASE CARDS ── */
+  .phases-list {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .phase-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    box-shadow: 0 2px 8px rgba(49,32,21,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .phase-card:hover { box-shadow: 0 6px 20px rgba(49,32,21,0.12); }
+  .phase-card.locked { opacity: 0.55; }
+  .phase-card.complete { border-color: var(--green); }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .phase-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--dark-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    transition: background 0.3s;
+  }
+  .phase-card.complete .phase-badge { background: var(--green); }
+  .phase-card.active .phase-badge   { background: var(--orange); }
+
+  .phase-info { flex: 1; min-width: 0; }
+  .phase-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--dark-brown);
+    line-height: 1.2;
+  }
+  .phase-sub {
+    font-size: 0.72rem;
+    color: var(--gray-text);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  .phase-pills {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .pill {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    letter-spacing: 0.04em;
+  }
+  .pill-xp     { background: var(--amber-bg); color: var(--amber-text); }
+  .pill-invest { background: var(--red-bg);   color: var(--red-text); }
+  .pill-partial{ background: var(--amber-bg); color: var(--amber-text); }
+  .pill-full   { background: var(--green-bg); color: var(--green); }
+
+  .chevron {
+    font-size: 1rem;
+    color: var(--gray-text);
+    margin-left: 0.3rem;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .phase-card.open .chevron { transform: rotate(180deg); }
+
+  /* ── PHASE BODY ── */
+  .phase-body {
+    display: none;
+    border-top: 1px solid var(--cream-dark);
+    padding: 1rem 1.1rem 1.1rem;
+  }
+  .phase-card.open .phase-body { display: block; }
+
+  .sub-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--gray-text);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .sub-label:first-child { margin-top: 0; }
+
+  /* Tasks */
+  .task-list { display: flex; flex-direction: column; gap: 4px; }
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .task-item:hover { background: var(--gray-light); }
+  .task-item.done  { background: var(--green-bg); }
+
+  .task-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1.5px solid var(--cream-dark);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    font-size: 0.75rem;
+    color: transparent;
+  }
+  .task-item.done .task-check {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+  .task-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--dark-brown);
+    flex: 1;
+  }
+  .task-item.done .task-text {
+    text-decoration: line-through;
+    color: var(--gray-text);
+  }
+  .urgent-tag {
+    font-size: 0.58rem;
+    font-weight: 700;
+    background: var(--amber-bg);
+    color: var(--amber-text);
+    padding: 1px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Rewards */
+  .reward-box {
+    background: var(--green-bg);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .reward-item {
+    font-size: 0.82rem;
+    color: var(--green);
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.35;
+  }
+  .reward-item::before {
+    content: '✦';
+    color: var(--orange);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Tip */
+  .tip-box {
+    border-left: 3px solid var(--orange);
+    background: #FFFBF5;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.8rem;
+    color: var(--gray-text);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .tip-box strong { color: var(--amber-text); font-style: normal; }
+
+  /* Progress bar inside card */
+  .card-progress {
+    height: 4px;
+    background: var(--cream-dark);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 0.65rem;
+  }
+  .card-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--terracota));
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+
+  /* ── PARALLEL ACTIONS ── */
+  .parallel-box {
+    max-width: 720px;
+    margin: 1.5rem auto 0;
+    padding: 0 1.25rem;
+  }
+  .parallel-inner {
+    background: var(--white);
+    border: 1.5px solid var(--orange);
+    border-left: 4px solid var(--orange);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+  }
+  .parallel-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--amber-text);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .parallel-item {
+    font-size: 0.83rem;
+    color: var(--dark-brown);
+    line-height: 1.5;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    display: flex;
+    gap: 8px;
+  }
+  .parallel-item:last-child { border-bottom: none; }
+  .parallel-item b { color: var(--dark-brown); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    max-width: 720px;
+    margin: 2rem auto 0;
+    padding: 0 1.25rem;
+    text-align: center;
+  }
+  .footer-inner {
+    background: var(--dark-brown);
+    border-radius: 12px;
+    padding: 1rem;
+    border-top: 3px solid var(--orange);
+  }
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    letter-spacing: 0.1em;
+  }
+  .footer-sub {
+    font-size: 0.7rem;
+    color: var(--orange);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-top: 2px;
+  }
+  .footer-contact {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+  }
+
+  /* ── CONFETTI / XP TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--dark-brown);
+    color: var(--white);
+    padding: 0.7rem 1.4rem;
+    border-radius: 99px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-left: 4px solid var(--orange);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    z-index: 999;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Reset button */
+  .reset-btn {
+    display: block;
+    margin: 1rem auto 0;
+    background: none;
+    border: 1px solid var(--cream-dark);
+    border-radius: 8px;
+    padding: 0.4rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    color: var(--gray-text);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .reset-btn:hover { background: var(--cream-dark); }
